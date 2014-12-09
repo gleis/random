@@ -1,0 +1,88 @@
+//
+//  RandomPhraseViewController.m
+//  random
+//
+//  Created by admin on 7/28/09.
+//  Copyright 2009 n/a. All rights reserved.
+//
+
+#import "RandomPhraseViewController.h"
+
+
+@implementation RandomPhraseViewController
+
+-(id)init
+{
+	// Call the superclass's designated initializer
+	[super initWithNibName:nil 
+					bundle:nil];
+	
+	// Get the tab bar item
+	UITabBarItem *tbi = [self tabBarItem];
+	
+	// Give it a label
+	[tbi setTitle:@"Phrase"];
+	
+	// Create a UIImage from a file
+	UIImage *i = [UIImage imageNamed:@"Hypno.png"];
+	
+	//Put that image on the tab bar item
+	[tbi setImage:i];
+	
+	//Set the background color of the new view so we can see it
+	//[[self view] setBackgroundColor:[UIColor orangeColor]];
+	
+	NSString *wordListPath = [[NSBundle mainBundle] pathForResource:@"words" ofType:@"txt"];
+	NSArray *wordArray = [[NSArray alloc] initWithContentsOfFile:@"words.txt"];
+	
+	NSLog(@"%@", [wordArray objectAtIndex:999]);
+	
+	return self;
+	
+}
+
+
+/*
+ // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        // Custom initialization
+    }
+    return self;
+}
+*/
+
+/*
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+*/
+
+/*
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+*/
+
+- (void)didReceiveMemoryWarning {
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload {
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
+}
+
+
+- (void)dealloc {
+    [super dealloc];
+}
+
+
+@end
